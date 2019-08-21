@@ -5,14 +5,17 @@
  * https://elijahcobb.com
  *
  */
+
+import {Iter} from "@ejc-tsds/iter";
 import {ArrayList} from "@ejc-tsds/arraylist";
 
-
-export class Queue<T> implements Iterable<T> {
+export class Queue<T> extends Iter<T> {
 
 	private readonly list: ArrayList<T>;
 
 	public constructor(...values: T[]) {
+
+		super();
 
 		this.list = new ArrayList<T>(...values);
 
@@ -51,25 +54,16 @@ export class Queue<T> implements Iterable<T> {
 
 	}
 
-	public [Symbol.iterator](): Iterator<T> {
+	protected iterHandler(index: number): T {
 
-		let index: number = 0;
+		return this.list.get(index) as T;
 
-		return {
+	}
 
-			next: (): IteratorResult<T> => {
+	protected iterSize(): number {
 
-				const value: T = this.list.get(index) as T;
+		return this.list.size();
 
-				index++;
-
-				return {
-					done: index === this.size() + 1,
-					value
-				};
-			}
-
-		};
 	}
 
 }
