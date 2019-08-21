@@ -1,7 +1,7 @@
 {
 	"name": "@ejc-tsds/queue",
 	"version": "0.0.1",
-	"description": "",
+	"description": "A class representing a queue data structure.",
 	"main": "dist/index",
 	"types": "dist/index",
 	"scripts": {
@@ -18,7 +18,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"keywords": [],
+	"keywords": ["queue", "typescript", "generic"],
 	"author": "Elijah Cobb <elijah@elijahcobb.com> (https://elijahcobb.com/)",
 	"license": "MIT",
 	"bugs": {
